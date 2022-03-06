@@ -1,11 +1,22 @@
-from abc import ABC
+from abc import ABC, abstractmethod
+
+from project_0.entities.bank_customers import Customer
 
 
 class CustomerInterfaceDao(ABC):
-    def create_customer(self, bankaccount: int):
+
+    @abstractmethod
+    def create_customer(self, customer: Customer) -> Customer:
         pass
 
+    @abstractmethod
+    def get_customer_id(self, customer_id: int) -> Customer:
+        pass
 
-class DeleteCustomerById(ABC):
-    def delete_customer_by_id(self, bankaccount: int):
+    @abstractmethod
+    def update_customer_id(self, customer: Customer) -> Customer:
+        pass
+
+    @abstractmethod
+    def delete_customer_id(self, customer_id) -> bool:
         pass
