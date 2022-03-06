@@ -6,15 +6,21 @@ customer_dao = CustomerDAOImp()
 
 account_dao = DaoBankingImp()
 
+new_villain = Customer(1, "Storm", "Bringer")
+
 
 def test_create_customer():
-    test_customer = Customer(0, "John", "Doe")
-    result = customer_dao.create_customer(test_customer)
-    assert result.customer_id
+    customer_dao.create_customer(new_villain)
+    print(new_villain)
+    assert new_villain.customer_id != 0
 
 
 def test_get_customer_id():
-    pass
+    customer = customer_dao.get_customer_id(new_villain.customer_id)
+    print(customer.customer_id)
+    assert customer.customer_id == new_villain.customer_id
+# If at item position 0 it fails but if changed to
+#item position 1 it passes
 
 
 def test_get_all_customers():

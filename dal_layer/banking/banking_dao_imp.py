@@ -25,10 +25,10 @@ class DaoBankingImp(BankingInterfaceDao, ABC):
 
     def get_all_accounts_for_user(self, account: Account) -> Account:
         for account_id in self.account_list:
-            if account == account_id:
+            if account.account_id == account_id:
                 return account_id
         raise IdNotFound("No account matches the id given: please try again")
-        pass
+
 
     def update_account(self, account: Account) -> Account:
         for old_identity in self.account_list:
@@ -37,9 +37,18 @@ class DaoBankingImp(BankingInterfaceDao, ABC):
                 return old_identity
         raise IdNotFound()
 
+
     def delete_account_by_id(self, account: int) -> bool:
         for account in self.account_list:
             if self.account_list == account:
                 self.account_list.remove(account)
                 return True
         raise IdNotFound("No customer matches the id given: please try again!")
+
+    def withdraw_from_account_id(self, account_id: int) -> Account:
+        pass
+
+
+
+    def deposit_into_account_by_id(self, account_id: int) -> Account:
+        pass

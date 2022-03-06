@@ -23,3 +23,11 @@ class BankingInterfaceDao(ABC):
     @abstractmethod
     def delete_account_by_id(self, account: int) -> bool:
         pass
+
+    @abstractmethod
+    def withdraw_from_account_id(self, account_id: int) -> Account:
+        pass
+
+    @abstractmethod
+    def deposit_into_account_by_id(self, account_id: int) -> Account:
+        pass

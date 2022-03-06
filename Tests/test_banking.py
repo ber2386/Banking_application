@@ -39,25 +39,25 @@ def test_account_balance():
     pass
 
 
-def test_withdraw_from_account_id():
-    pass
+# def test_withdraw_from_account_id():
+#     pass
+#
+#
+# def test_withdraw_overdraft():
+#     pass
 
 
-def test_withdraw_overdraft():
-    pass
-
-
-def test_deposit_into_account_by_id():
-    pass
-
-
-def test_negative_deposit():
-    pass
-
-
-def test_transfer_between_accounts():
-    pass
-
-
-def test_sufficient_transfer_funds():
-    pass
+# def test_deposit_into_account_by_id():
+#     pass
+#
+#
+# def test_negative_deposit():
+#     pass
+#
+#
+# def test_transfer_between_accounts():
+#     pass
+#
+#
+# def test_sufficient_transfer_funds():
+#     pass
