@@ -24,20 +24,20 @@ class BankingServiceInterface(ABC):
 
 
     @abstractmethod
-    def service_delete_account_by_id(self, account: int) -> bool:
+    def service_delete_account_by_id(self, customer_id, account_id: int) -> bool:
         pass
 
 
     @abstractmethod
-    def withdraw_from_account_id(self, withdrawn_amount, account_id: int) -> Account:
+    def service_withdraw_from_account_id(self, withdrawn_amount, account_id: int) -> Account:
         pass
 
 
     @abstractmethod
-    def deposit_into_account_by_id(self, deposit_amount, account_id: int) -> Account:
+    def service_deposit_into_account_by_id(self, deposit_amount, account_id: int) -> Account:
         pass
 
 
     @abstractmethod
-    def transfer_money_between_accounts_by_their_ids(self, withdraw_id: int, deposit_id: int, transfer_amount) -> bool:
+    def service_transfer_money_between_accounts_by_their_ids(self, withdraw_id: int, deposit_id: int, transfer_amount) -> bool:
         pass

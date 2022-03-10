@@ -49,8 +49,6 @@ class DaoBankingImp(BankingInterfaceDao, ABC):
         raise IdNotFound("No customer matches the id given: please try again!")
 
     def withdraw_from_account_id(self, withdrawn_amount, account_id: int) -> Account:
-        if withdrawn_amount < 0:
-            raise ValueError("Invalid withdraw (negative number)")
         for account in self.account_list:
             if account.account_id == account_id:
                 if withdrawn_amount <= account.balance:
@@ -60,8 +58,6 @@ class DaoBankingImp(BankingInterfaceDao, ABC):
                     return account
 
     def deposit_into_account_by_id(self, deposit_amount, account_id: int) -> Account:
-        if deposit_amount < 0:
-            raise ValueError("Invalid deposit (negative number)")
         for account in self.account_list:
             if account_id == account.account_id:
                 account.balance += deposit_amount

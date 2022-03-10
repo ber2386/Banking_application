@@ -14,7 +14,7 @@ class CustomerServiceImp(CustomerServiceInterface):
     def service_create_customer(self, customer: Customer) -> Customer:
         if type(customer.first_name) and type(customer.last_name) != str:
             raise InvalidInformation("Please insert proper information")
-        elif len(customer.first_name) and len(customer.last_name) >= 2:
+        elif len(customer.first_name) and len(customer.last_name) >= 20:
             raise InputLength("Your created customer is >20, please make <20.")
         return self.customer_bo.create_customer(customer)
 
@@ -28,7 +28,7 @@ class CustomerServiceImp(CustomerServiceInterface):
     def service_update_customer_id(self, customer: Customer) -> Customer:
         if type(customer.first_name) and type(customer.last_name) != str:
             raise InvalidInformation("Please insert proper information")
-        elif len(customer.first_name) and len(customer.last_name) >= 2:
+        elif len(customer.first_name) and len(customer.last_name) >= 20:
             raise InputLength("Your created customer is >20, please make <20.")
         return self.customer_bo.update_customer_id(customer)
 
