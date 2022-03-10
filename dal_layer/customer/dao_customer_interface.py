@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from project_0.entities.bank_customers import Customer
+from entities.bank_customers import Customer
 
 
 class CustomerInterfaceDao(ABC):

@@ -1,6 +1,6 @@
-from project_0.customer_error.id_not_found import IdNotFound
-from project_0.dal_layer.customer.dao_customer_interface import CustomerInterfaceDao
-from project_0.entities.bank_customers import Customer
+from customer_error.id_not_found import IdNotFound
+from dal_layer.customer.dao_customer_interface import CustomerInterfaceDao
+from entities.bank_customers import Customer
 
 
 class CustomerDAOImp(CustomerInterfaceDao):

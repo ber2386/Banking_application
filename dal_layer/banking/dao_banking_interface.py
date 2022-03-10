@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from project_0.entities.bank_accounts import Account
+from entities.bank_accounts import Account
 
 
 class BankingInterfaceDao(ABC):
@@ -13,7 +13,7 @@ class BankingInterfaceDao(ABC):
         pass
 
     @abstractmethod
-    def get_all_accounts_for_user(self, account: Account) -> Account:
+    def get_all_accounts_for_user(self, customer_id: int) -> [Account]:
         pass
 
     @abstractmethod
@@ -21,13 +21,17 @@ class BankingInterfaceDao(ABC):
         pass
 
     @abstractmethod
-    def delete_account_by_id(self, account: int) -> bool:
+    def delete_account_by_id(self, account_id: int) -> bool:
         pass
 
     @abstractmethod
-    def withdraw_from_account_id(self, account_id: int) -> Account:
+    def withdraw_from_account_id(self, withdrawn_amount, account_id: int) -> Account:
         pass
 
     @abstractmethod
-    def deposit_into_account_by_id(self, account_id: int) -> Account:
+    def deposit_into_account_by_id(self,deposit_amount, account_id: int) -> Account:
+        pass
+
+    @abstractmethod
+    def transfer_money_between_accounts_by_their_ids(self, withdraw_id: int, deposit_id: int, transfer_amount) -> bool:
         pass
