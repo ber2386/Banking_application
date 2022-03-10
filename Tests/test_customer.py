@@ -1,3 +1,4 @@
+from customer_error.record_not_found import RecordNotFound
 from dal_layer.banking.banking_dao_imp import DaoBankingImp
 from dal_layer.customer.customer_dao_imp import CustomerDAOImp
 from entities.bank_customers import Customer
@@ -8,14 +9,36 @@ account_dao = DaoBankingImp()
 
 new_villain = Customer(1, "Storm", "Bringer")
 
+"""
+Business logic:
+    - Customers may not have same unique_id=customer_id
 
-def test_create_customer():
+
+Will check for correct data for the method and the correct data type
+Will check to confirm data exists
+Test CRUD
+"""
+
+
+# Customer Creation Tests
+
+
+def test_create_customer_success():
     customer_dao.create_customer(new_villain)
     print(new_villain)
     assert new_villain.customer_id != 0
 
 
-def test_get_customer_id():
+def test_catch_non_unique_customer_id():
+    new_hero = Customer(2, "Robo", "Cop")
+    conclusion = customer_dao.create_customer(new_hero)
+    assert conclusion.customer_id != 2
+
+
+# Read Customer Tests
+
+
+def test_get_customer_id_success():
     customer = customer_dao.get_customer_id(new_villain.customer_id)
     print(customer.customer_id)
     assert customer.customer_id == new_villain.customer_id
@@ -39,6 +62,14 @@ def test_update_customer():
     assert updated_villain.first_name == new_villain.first_name
 
 
-def test_delete_customer_by_id():
+# Delete Customer Tests
+
+
+def test_delete_customer_by_id_success():
     result = customer_dao.delete_customer_id(new_villain.customer_id)
     print(result)
+
+
+# def test_delete_customer_fictional_id():
+#     result = customer_dao.delete_customer_id(0)
+#     print(result)
