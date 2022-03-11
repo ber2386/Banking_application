@@ -12,7 +12,7 @@ class CustomerDAOImp(CustomerInterfaceDao):
         self.customer_list.append(customer_id_catch)
 
     def create_customer(self, customer: Customer) -> Customer:
-        customer.customer_id = self.customer_list
+        customer.customer_id = self.customer_id_generator
         self.customer_id_generator += 1
         self.customer_list.append(customer)
         return customer
