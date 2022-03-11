@@ -23,8 +23,14 @@ def test_negative_deposit():
         assert str(e) == "Invalid deposit (negative number)"
 
 
+"""
+Delete Account
+"""
+
+
 def test_delete_another_customer_account():
     try:
         account_service_banking_imp.service_delete_account_by_id(2, 1)
     except InvalidInformation as e:
         assert str(e) == "You can not close another persons account"
+

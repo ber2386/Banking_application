@@ -88,7 +88,7 @@ def test_check_ln_length_characters():
         customer_boj.service_create_customer(len_last_name_improve)
     except InputLength as e:
         assert e
-        assert str(e) == "Your first name is over 20 characters"
+        assert str(e) == "Your last name is over 20 characters"
 
 
 

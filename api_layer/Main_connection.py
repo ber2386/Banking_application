@@ -19,6 +19,10 @@ with banking data. I can use different verbs to determine WHAT I am doing with t
 know what particular service method needs to be called
 """
 
+"""
+This will allow you to create a customer from the web.
+"""
+
 
 @app.route("/banking", methods=["POST"])
 def create_bank():
@@ -39,6 +43,11 @@ def create_bank():
             "message": str(e)
         }
         return jsonify(message), 400
+
+
+"""
+This returns a customer id 
+"""
 
 
 @app.route("/customer/<customer_id>", methods=["GET"])

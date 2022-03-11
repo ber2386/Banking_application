@@ -5,6 +5,11 @@ from entities.bank_accounts import Account
 
 account_dao = DaoBankingImp()
 
+"""
+Testing Accounts 
+"""
+
+
 testing_account = Account(1, 1, 1750)
 account_dao.service_create_account(testing_account)
 create_account = (Account(2, 2, 2))
@@ -96,6 +101,7 @@ Transfer test
 
 def test_transfer_between_accounts():
     result = account_dao.service_transfer_money_between_accounts_by_their_ids(1, 2, 502)
+    print(result)
     assert result == 503
 
 

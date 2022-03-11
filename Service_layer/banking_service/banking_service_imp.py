@@ -1,4 +1,3 @@
-from Service_layer.banking_service.banking_service_interface import BankingServiceInterface
 from Tests.test_banking import account_dao
 from customer_error.invalid_information import InvalidInformation
 from customer_error.invalid_number import InvalidNumber

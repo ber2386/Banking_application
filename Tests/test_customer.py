@@ -53,7 +53,6 @@ def test_get_all_customers():
     customer_dao.create_customer(villain1)
     customer_dao.create_customer(villain2)
     customer_dao.create_customer(villain3)
-    pass
 
 
 def test_update_customer():
