@@ -69,4 +69,35 @@ def get_customer_by_id(customer_id):
         return jsonify(message), 400
 
 
+
+
+"""
+This deletes a customer id
+"""
+
+
+@app.route("/api/customer/delete_customer_by_id/<customer_id>", methods=["DELETE"])
+def api_delete_customer_by_id(customer_id: str):
+    customer = int(customer_id)
+    result = customer_service_layer.service_delete_customer_id(customer)
+    return jsonify(result), 200
+
+
+"""
+Banking API layer starts here
+"""
+
+
+@app.route("/api/bank_account/get_account_by_id/<account_id>", methods=["GET"])
+def api_get_account_by_id(account_id: str):
+    account_id = int(account_id)
+    result = bank_service_layer.service_get_account_by_id(account_id)
+    new_result = {
+        "bankId": result.account_id,
+        "balance": result.balance,
+        "customerId": result.customer_id
+    }
+    return jsonify(new_result), 200
+
+
 app.run()

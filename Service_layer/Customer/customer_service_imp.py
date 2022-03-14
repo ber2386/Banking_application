@@ -11,6 +11,7 @@ class CustomerServiceImp(CustomerServiceInterface):
     def __init__(self, customer_bo: CustomerInterfaceDao):
         self.customer_bo = customer_bo
 
+
     def service_create_customer(self, customer: Customer) -> Customer:
         if type(customer.first_name) and type(customer.last_name) != str:
             raise InvalidInformation("Please insert proper information")

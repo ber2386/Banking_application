@@ -14,13 +14,13 @@ class BankingServiceImp(BankingInterfaceDao):
         return account_dao.create_account(account)
 
     def service_get_account_by_id(self, account_id: int):
-        return account_dao.get_account_by_id(account_id)
+        return account_dao.service_get_account_by_id(account_id)
 
     def service_get_all_accounts_for_user(self, account: Account):
-        return account_dao.get_all_accounts_for_user()
+        return account_dao.service_get_all_accounts_for_user()
 
     def service_update_account(self, account: Account):
-        return account_dao.update_account(account)
+        return account_dao.service_update_account(account)
 
     def service_delete_account_by_id(self, customer_id, account_id: int):
         varify_account = account_dao.service_get_account_by_id(account_id)
