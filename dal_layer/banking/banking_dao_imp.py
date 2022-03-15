@@ -1,5 +1,6 @@
 from customer_error.id_not_found import IdNotFound
 from customer_error.invalid_data import InvalidValue
+from customer_error.invalid_number import InvalidNumber
 from customer_error.record_not_found import RecordNotFound
 from dal_layer.banking.dao_banking_interface import BankingInterfaceDao
 from entities.bank_accounts import Account
@@ -47,6 +48,8 @@ class DaoBankingImp(BankingInterfaceDao):
         raise IdNotFound("No customer matches the id given: please try again!")
 
     def service_withdraw_from_account_id(self, withdrawn_amount, account_id: int) -> Account:
+        if withdrawn_amount < 0:
+            raise InvalidNumber("Invalid withdraw amount, negative balance")
         for account in self.account_list:
             if account.account_id == account_id:
                 if withdrawn_amount <= account.balance:
@@ -56,6 +59,8 @@ class DaoBankingImp(BankingInterfaceDao):
                     return account
 
     def service_deposit_into_account_by_id(self, deposit_amount, account_id: int) -> Account:
+        if deposit_amount < 0:
+            raise ValueError("Invalid deposit (negative number)")
         for account in self.account_list:
             if account_id == account.account_id:
                 account.balance += deposit_amount
